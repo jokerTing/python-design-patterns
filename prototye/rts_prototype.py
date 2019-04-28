@@ -1,5 +1,10 @@
 from prototype_1 import Prototype
 from copy import deepcopy
+'''
+class Concrete(Prototype):
+    def clone(self):
+        return deepcopy(self)
+'''
 class Knight(Prototype):
     def __init__(self, level):
         self.unit_type = "knight"
@@ -44,7 +49,6 @@ class Archer(Prototype):
             self.attack_power = lines[2]
             self.attack_range = lines[3]
             self.weapon = lines[4]
-
 
     def __str__(self):
         return "Type: {0}\n" \
