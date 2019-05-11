@@ -6,8 +6,8 @@ class Dispatcher(SimpleXMLRPCServer):
         self.topic_subscribers = dict()
         super(Dispatcher, self).__init__(("localhost", 9000))
         print("Listening on port 9000")
-    
-        self.register_function(self.subscribe, "subescribe")
+     
+        self.register_function(self.subscribe, "subscribe")
         self.register_function(self.unsubscribe, "unsubscribe")
         self.register_function(self.unsubscribe_all, "unsubscribe_all")
         self.register_function(self.send, "send")
@@ -21,6 +21,7 @@ class Dispatcher(SimpleXMLRPCServer):
         print('Unsubscribing {} to {}'.format(subscriber, topic))
         self.topic_subscribers.setdefault(topic, set()).discard(subscriber)
         return "OK"
+
 
     def unsubscribe_all(self, topic):
         print('Unsubscribing all {}'.format(topic))
@@ -42,3 +43,11 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+'''
+Subscribing http://localhost:9001 to MessageTopic
+127.0.0.1 - - [11/May/2019 13:10:51] "POST /RPC2 HTTP/1.1" 200 -
+Sending Message:
+Topic: MessageTopic
+Payload: This is an awesome payload
+'''

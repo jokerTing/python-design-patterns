@@ -23,3 +23,9 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+'''
+Listeing on port 9001...
+Message: This is an awesome payload
+127.0.0.1 - - [11/May/2019 13:12:28] "POST /RPC2 HTTP/1.1" 200 -
+'''
