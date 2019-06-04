@@ -1,5 +1,6 @@
 from prototype_1 import Prototype
 from copy import deepcopy
+import os
 '''
 class Concrete(Prototype):
     def clone(self):
@@ -8,8 +9,8 @@ class Concrete(Prototype):
 class Knight(Prototype):
     def __init__(self, level):
         self.unit_type = "knight"
-
-        file_name = "{}_{}.dat".format(self.unit_type, level)
+        print(os.getcwd())
+        file_name = "prototype/{}_{}.dat".format(self.unit_type, level)
         with open(file_name, 'r') as parameter_file:
             lines = parameter_file.read().split("\n")
             self.life = lines[0]
@@ -40,7 +41,7 @@ class Archer(Prototype):
         self.max_level = 2
         self.unit_type = "archer"
         self.level = level
-        file_name = "{}_{}.dat".format(self.unit_type, level)
+        file_name = "prototype/{}_{}.dat".format(self.unit_type, level)
         with open(file_name, 'r') as parameter_file:
             lines = parameter_file.read().split("\n")
             self.name = "William"
@@ -72,7 +73,7 @@ class Archer(Prototype):
         level = self.level + 1
         if level <= self.max_level:
             self.level = level
-            file_name = "{}_{}.dat".format(self.unit_type, level)
+            file_name = "prototype/{}_{}.dat".format(self.unit_type, level)
             with open(file_name, 'r') as parameter_file:
                 lines = parameter_file.read().split("\n")
                 self.name = "William"

@@ -9,14 +9,14 @@ class Observer(object):
     
 class ConcreteObserver(Observer):
 '''
-class ConcreteObserver(object):
+class Observer(object):
     def update(self, observed):
         print("Observing: {}".format(observed))
 
 class Observable(object):
     def __init__(self):
         self.callbacks = set()
-        self.changed = False
+        self.changed = True
     
     def register(self, observer):
         self.callbacks.add(observer)
@@ -29,7 +29,7 @@ class Observable(object):
     
     def poll_for_change(self):
         if self.changed:
-            self.update_all
+            self.update_all()
     
     def update_all(self):
         for callback in self.callbacks:
@@ -37,7 +37,7 @@ class Observable(object):
 
 def main():
     observerd = Observable()
-    observer1 = ConcreteObserver()
+    observer1 = Observer()
     observerd.register(lambda x:observer1.update(x))
     # observerd.update_all()
     #while True:
